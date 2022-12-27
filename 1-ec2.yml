@@ -1,0 +1,17 @@
+
+AWSTemplateFormatVersion: "2010-09-09"
+Description: my ec2 template
+Resources:
+  MyEC2Instance:
+    Type: "AWS::EC2::Instance"
+    Properties: 
+      ImageId: "ami-0b5eea76982371e91"
+      InstanceType: t2.micro
+      KeyName: Eaglfavsskey  # replace the keypair
+      BlockDeviceMappings:
+        -
+          DeviceName: /dev/xvda
+          Ebs:
+            VolumeType: gp2            
+            DeleteOnTermination: true
+            VolumeSize: 8
